@@ -9,6 +9,8 @@ export default {
         bellefair: ["Bellefair"],
       },
       screens: {
+        minHeight: { raw: "(max-height: 600px)" },
+
         sm: { min: "340px", max: "768px" },
         // => @media (min-width: 360px) { ... }
 
