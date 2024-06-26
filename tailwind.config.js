@@ -9,13 +9,16 @@ export default {
         bellefair: ["Bellefair"],
       },
       screens: {
-        minHeightTablet: { raw: "(max-height: 720px)" },
-        minHeightMobile: { raw: "(max-height: 741px)" },
+        minHeightTablet: { raw: "(max-height: 980px)" },
+        minHeightMobile: { raw: "(max-height: 850px)" },
+        minHeightDesktop: { raw: "(max-height: 870px)" },
+        minHeight: { raw: "(max-height: 890px)" },
 
-        sm: { min: "340px", max: "640.9px" },
+
+        sm: { min: "320px", max: "640.9px" },
         // => @media (min-width: 360px) { ... }
 
-        md: { min: "641px", max: "1440.9px" },
+        md: { min: "641px", max: "1439.9px" },
         // => @media (min-width: 768px) { ... }
 
         lg: { min: "1440px" },

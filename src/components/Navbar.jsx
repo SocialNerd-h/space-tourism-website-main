@@ -20,7 +20,7 @@ const Navbar = () => {
       />
       <nav
         className={` lg:before:w-[35rem] lg:before:border-[#979797]/25 lg:before:left-[-530px] lg:before:bottom-[50%] lg:relative lg:before:absolute lg:before:h-[3px] 
-        lg:before:border-b-[1px] lg:w-[51%] lg:h-24 md:w-5/6 md:h-24 bg-white/5 backdrop-blur font-barlowC ${isOpen ? "translate-x-0" : "translate-x-full"} 
+        lg:before:border-b-[1px] lg:w-[51%] lg:h-24 md:w-5/6 md:h-24 md:max-w-[980px]  bg-white/5 backdrop-blur font-barlowC ${isOpen ? "translate-x-0" : "translate-x-full"} 
         md:translate-x-0 lg:translate-x-0 sm:fixed sm:z-50 sm:top-0 sm:pt-8 sm:right-0 sm:w-8/12 sm:bg-veryDarkNavy sm:bg-opacity-50 sm:backdrop-blur sm:h-dvh `}
       >
         <img
