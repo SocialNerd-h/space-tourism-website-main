@@ -9,11 +9,10 @@ export default {
         bellefair: ["Bellefair"],
       },
       screens: {
-        minHeightTablet: { raw: "(max-height: 980px)" },
-        minHeightMobile: { raw: "(max-height: 850px)" },
-        minHeightDesktop: { raw: "(max-height: 870px)" },
+/*         minHeightTablet: { raw: "(max-height: 1200px)" },
+        minHeightMobile: { raw: "(max-height: 900px)" },
+        minHeightDesktop: { raw: "(max-height: 870px)" }, */
         minHeight: { raw: "(max-height: 890px)" },
-
 
         sm: { min: "320px", max: "640.9px" },
         // => @media (min-width: 360px) { ... }
@@ -32,6 +31,10 @@ export default {
         destinationSm: "url('@assets/destination/background-destination-mobile.jpg')",
         destinationMd: "url('@assets/destination/background-destination-tablet.jpg')",
         destinationLg: "url('@assets/destination/background-destination-desktop.jpg')",
+        crewSm: "url('@assets/crew/background-crew-mobile.jpg')",
+        crewMd: "url('@assets/crew/background-crew-tablet.jpg')",
+        crewLg: "url('@assets/crew/background-crew-desktop.jpg')",
+        
       },
       colors: {
         veryDarkNavy: "#0B0D17",

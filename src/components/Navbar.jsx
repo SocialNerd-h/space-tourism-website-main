@@ -2,6 +2,7 @@ import logo from "@assets/shared/logo.svg";
 import exit from "@assets/shared/icon-close.svg";
 import menu from "@assets/shared/icon-hamburger.svg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
@@ -35,8 +36,9 @@ const Navbar = () => {
       md:justify-between md:pl-[5.4375rem] md:pr-[5.3%] text-white sm:pt-28 sm:ml-8 uppercase tracking-widest [word-spacing:0.5rem]"
         >
           <li className="">
-            <a
-              href="#"
+            <Link
+              onClick={() => setOpen(!isOpen)}
+              to="/"
               className="h-full inline-block lg:leading-[6rem] lg:border-b-[3px] lg:w-full lg:border-white/0 lg:hover:border-white/50 lg:transition lg:duration-700
 
             md:leading-[6rem] md:border-b-[3px] md:w-full md:border-white/0 md:hover:border-white/50 md:transition md:duration-700
@@ -44,11 +46,12 @@ const Navbar = () => {
             sm:mb-8 sm:h-5 sm:border-r-[3px] sm:w-full sm:border-white/0 sm:hover:border-white/50 sm:transition sm:duration-700"
             >
               <span className="font-semibold ">00 </span> Home
-            </a>
+            </Link>
           </li>
           <li className="">
-            <a
-              href="https://tailwindcss.com/docs/box-shadow"
+            <Link
+              onClick={() => setOpen(!isOpen)}
+              to="/destination"
               className="h-full inline-block lg:leading-[6rem] lg:border-b-[3px] lg:w-full lg:border-white/0 lg:hover:border-white/50 lg:transition lg:duration-700
             
             md:leading-[6rem] md:border-b-[3px] md:w-full md:border-white/0 md:hover:border-white/50 md:transition md:duration-700
@@ -56,11 +59,12 @@ const Navbar = () => {
             sm:mb-8 sm:h-5 sm:border-r-[3px] sm:w-full sm:border-white/0 sm:hover:border-white/50 sm:transition sm:duration-700"
             >
               <span className="font-semibold">01</span> Destination
-            </a>
+            </Link>
           </li>
           <li className=" ">
-            <a
-              href="#"
+            <Link
+              onClick={() => setOpen(!isOpen)}
+              to="/crew"
               className="h-full inline-block lg:leading-[6rem] lg:border-b-[3px] lg:w-full lg:border-white/0 lg:hover:border-white/50 lg:transition lg:duration-700
 
             md:leading-[6rem] md:border-b-[3px] md:w-full md:border-white/0 md:hover:border-white/50 md:transition md:duration-700 
@@ -68,11 +72,12 @@ const Navbar = () => {
             sm:mb-8 sm:h-5 sm:border-r-[3px] sm:w-full sm:border-white/0 sm:hover:border-white/50 sm:transition sm:duration-700"
             >
               <span className="font-semibold">02</span> Crew
-            </a>
+            </Link>
           </li>
           <li className="">
-            <a
-              href="#"
+            <Link
+              onClick={() => setOpen(!isOpen)}
+              to="/technology"
               className="h-full inline-block lg:leading-[6rem] lg:border-b-[3px] lg:w-full lg:border-white/0 lg:hover:border-white/50 lg:transition lg:duration-700
 
             md:leading-[6rem] md:border-b-[3px] md:w-full md:border-white/0 md:hover:border-white/50 md:transition md:duration-700
@@ -80,7 +85,7 @@ const Navbar = () => {
             sm:h-5 sm:border-r-[3px] sm:w-full sm:border-white/0 sm:hover:border-white/50 sm:transition sm:duration-700"
             >
               <span className="font-semibold ">03 </span> Technology
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

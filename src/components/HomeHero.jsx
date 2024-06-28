@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from "react-router-dom";
 
 const HomeHero = () => {
   return (
@@ -17,13 +17,11 @@ const HomeHero = () => {
             world experience!
           </p>
         </div>
-        <button
-          className="sm:mt-[4.46875rem] outline outline-white/0 duration-700 hover:outline-white/10 outline-[87px]
+
+          <Link className=" flex justify-center items-center sm:mt-[4.46875rem] outline outline-white/0 duration-700 hover:outline-white/10 outline-[87px]
           md:mt-[4.125rem] font-bellefair sm:text-lg text-[2rem] uppercase bg-white text-veryDarkNavy rounded-full sm:size-36 size-[17rem] 
-        md:text-[2rem] md:minHeightTablet:mb-[87px] sm:minHeightMobile:mb-[87px]"
-        >
-          Explore
-        </button>
+        md:text-[2rem] md:minHeightTablet:mb-[87px] sm:minHeightMobile:mb-[87px]" to="/destination">Explore</Link>
+
       </div>
   )
 }

@@ -1,12 +1,31 @@
+import { Route, createBrowserRouter,  createRoutesFromElements, RouterProvider } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
 import HomePage from './pages/HomePage';
 import PlanetPage from './pages/PlanetPage';
+import CrewPage from "./pages/CrewPage";
 
-/* json-server work onlu if terminal in src folder */
+/* json-server work onlu if terminal in src folder -- DONE (restart the project after changes (--watch src/data.json ) in package.json)
+    still don't know how to make responsive background nice and clean -- DONE?? (overflow:auto is really helpful)
+    to deal with error page
+    background image on dofferent pages problem
+    crop the crew img
+    active state on every choose-between button
+    while loading spinner ul element break down
+*/
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<MainLayout />}>
+      <Route index element={<HomePage />} />
+      <Route path="/destination" element={<PlanetPage />} />
+      <Route path="/crew" element={<CrewPage />} />
+    </Route>
+
+)
+);
 
 const App = () => {
-  return (
-    <PlanetPage />
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
