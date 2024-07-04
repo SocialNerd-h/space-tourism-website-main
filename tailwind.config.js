@@ -34,6 +34,9 @@ export default {
         crewSm: "url('@assets/crew/background-crew-mobile.jpg')",
         crewMd: "url('@assets/crew/background-crew-tablet.jpg')",
         crewLg: "url('@assets/crew/background-crew-desktop.jpg')",
+        techSm: "url('@assets/technology/background-technology-mobile.jpg')",
+        techMd: "url('@assets/technology/background-technology-tablet.jpg')",
+        techLg: "url('@assets/technology/background-technology-desktop.jpg')",
         
       },
       colors: {

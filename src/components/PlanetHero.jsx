@@ -3,8 +3,11 @@ import Spinner from "./Spinner";
 
 const PlanetHero = () => {
 
+    const activeLink = "h-full inline-block border-b-[3px] border-white text-white";
+
     const [destination, setDestination] = useState([]);
     const [loading, setLoading] = useState(true);
+
 
     // checking is there a local stored id, if not, setting it to zero (first element Moon)
     const getInitialId = () => {
@@ -23,11 +26,12 @@ const PlanetHero = () => {
             setLoading(true);
             try {
                 const res = await fetch("http://localhost:8000/destinations");
-            const data = await res.json();
-            setDestination(data[id]);
+                const data = await res.json();
+                setDestination(data[id]);
+                document.getElementById(id).className = activeLink;
             } catch (error) {
-             console.log("Error fetching data", error)
-             document.getElementById("container").className = "md:min-h-[90lvh] sm:min-h-[90lvh] lg:min-h-[90lvh] text-white sm:w-[327px] lg:w-[1440px] md:p-[2.5rem] lg:mx-auto sm:mx-auto  md:max-w-[1220px] md:mx-auto lg:py-[2.5rem] lg:px-[10.3125rem] flex flex-col items-center "
+                console.log("Error fetching data", error)
+                document.getElementById("container").className = "md:min-h-[90lvh] sm:min-h-[90lvh] lg:min-h-[90lvh] text-white sm:w-[327px] lg:w-[1440px] md:p-[2.5rem] lg:mx-auto sm:mx-auto  md:max-w-[1220px] md:mx-auto lg:py-[2.5rem] lg:px-[10.3125rem] flex flex-col items-center "
 
             } finally {
                 setLoading(false);
@@ -35,6 +39,7 @@ const PlanetHero = () => {
         }     
         fetchDest();
     }, [id]);
+
 
   return (
     <div id="container" className="text-white sm:w-[327px] lg:w-[1440px] lg:h-[45.875rem] lg:mx-auto sm:mx-auto md:p-[2.5rem] md:max-w-[1220px] md:mx-auto lg:py-[2.5rem] lg:px-[10.3125rem] flex flex-col items-center">
@@ -51,10 +56,10 @@ const PlanetHero = () => {
             <div className="flex flex-col lg:px-12 lg:ml-8 sm:mt-12 md:mt-[4.125rem] md:min-w-[32.125rem] lg:text-left md:px-32 lg:w-[50%] items-center lg:items-start max-w-3xl">
                 <div className="w-full md:max-w-[21rem] font-barlowC sm:text-sm lg:pr-[11.5rem] uppercase tracking-widest text-lightBlue">
                     <ul className="flex flex-row h-[2.25rem] sm:px-10 justify-between">
-                        <li><a className="h-full inline-block transition duration-700 border-b-[3px] border-white/0 hover:border-white/50" onClick={() => {setId(0)}}  href="">Moon</a></li>
-                        <li><a className="h-full inline-block transition duration-700 border-b-[3px] border-white/0 hover:border-white/50" onClick={() => {setId(1)}}  href="">Mars</a></li>
-                        <li><a className="h-full inline-block transition duration-700 border-b-[3px] border-white/0 hover:border-white/50" onClick={() => {setId(2)}}  href="">Europa</a></li>
-                        <li><a className="h-full inline-block transition duration-700 border-b-[3px] border-white/0 hover:border-white/50" onClick={() => {setId(3)}}  href="">Titan</a></li>
+                        <li><a id="0" className="h-full inline-block transition duration-700 border-b-[3px] border-white/0 hover:border-white/50" onClick={() => {setId(0)}}  href="">Moon</a></li>
+                        <li><a id="1" className="h-full inline-block transition duration-700 border-b-[3px] border-white/0 hover:border-white/50" onClick={() => {setId(1)}}  href="">Mars</a></li>
+                        <li><a id="2" className="h-full inline-block transition duration-700 border-b-[3px] border-white/0 hover:border-white/50" onClick={() => {setId(2)}}  href="">Europa</a></li>
+                        <li><a id="3" className="h-full inline-block transition duration-700 border-b-[3px] border-white/0 hover:border-white/50" onClick={() => {setId(3)}}  href="">Titan</a></li>
                     </ul>
                 </div>
                 <div className="font-bellefair text sm:text-[3.5rem] lg:text-8xl md:text-[5rem] uppercase" >{destination.name}</div>
