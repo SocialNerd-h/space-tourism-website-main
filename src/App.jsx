@@ -8,10 +8,11 @@ import TechPage from "./pages/TechPage";
 /* json-server work onlu if terminal in src folder -- DONE (restart the project after changes (--watch src/data.json ) in package.json)
     still don't know how to make responsive background nice and clean -- DONE?? (overflow:auto is really helpful)
     to deal with error page
-    background image on different pages problem
+    background image on different pages problem DONE (simply putting all css for background to each page using padding top making space for navbar(which position I made absolute))
     crop the crew img
     active state on every choose-between button DONE (NavLink from react-router-dom with nav elements; useEffect with id solution in classic inner-page menu)
     while loading spinner ul element break down
+    overflow malfunction 
 */
 
 const router = createBrowserRouter(
