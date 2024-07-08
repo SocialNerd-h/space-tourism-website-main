@@ -58,8 +58,7 @@ const CrewHero = () => {
                     </div>
                 </div>
                 <div className="sm:mt-[2rem] lg:w-[50%] md:h-[500px] overflow-hidden flex justify-center items-center relative sm:before:absolute sm:before:w-full sm:before:h-[70px] sm:before:bottom-0 
-                sm:before:bg-gradient-to-t from-[#0B0D17] to-[rgb(217,217,217)]/0 lg:before:absolute lg:before:w-full lg:before:h-[70px] lg:before:bottom-0 lg:before:bg-gradient-to-t
-                    from-[#0B0D17] to-[rgb(217,217,217)]/0">
+                sm:before:bg-gradient-to-t from-[#0B0D17] to-[rgb(217,217,217)]/0 lg:before:absolute lg:before:w-full lg:before:h-[70px] lg:before:bottom-0 lg:before:bg-gradient-to-t">
                     {loading ? <Spinner loading={loading} /> : (
                     <img className="self-center md:self-start sm:h-[340px] md:h-[35rem] " src={crew.images? crew.images.png : null} alt="" />
                     )}
