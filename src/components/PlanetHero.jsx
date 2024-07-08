@@ -25,7 +25,7 @@ const PlanetHero = () => {
         const fetchDest = async() => {
             setLoading(true);
             try {
-                const res = await fetch("http://localhost:8000/destinations");
+                const res = await fetch("/api/destinations");
                 const data = await res.json();
                 setDestination(data[id]);
                 document.getElementById(id).className = activeLink;
@@ -42,17 +42,18 @@ const PlanetHero = () => {
 
 
   return (
-    <div className="h-dvh pt-[100px] lg:pt-[136px] overflow-auto flex flex-col lg:bg-destinationLg md:bg-destinationMd sm:bg-destinationSm bg-no-repeat bg-cover bg-fixed bg-center">
+    <div className="min-h-dvh pt-[100px] lg:pt-[136px] flex flex-col justify-center lg:bg-destinationLg md:bg-destinationMd sm:bg-destinationSm bg-no-repeat bg-cover bg-fixed bg-center">
         <div id="container" className="text-white sm:w-[327px] lg:w-[1440px] lg:h-[45.875rem] lg:mx-auto sm:mx-auto md:p-[2.5rem] md:max-w-[1220px] md:mx-auto lg:py-[2.5rem] lg:px-[10.3125rem] flex flex-col items-center">
             <div className="font-barlowC uppercase lg:text-[1.75rem] md:text-xl self-start sm:self-center [letter-spacing:0.15em;]" >
                 <h1><span className="text-white/50 mr-4 ">01</span> pick your destination</h1>
             </div>
             <div className="sm:w-full lg:mt-[9.4375rem] lg:minHeight:mt-28 lg:flex">
                 <div className="sm:mt-12 md:mt-[4.125rem] lg:w-[50%] flex justify-center">
-                    {loading ? <Spinner loading={loading} /> : (
+
+                {loading ? <Spinner loading={loading} /> : (
                     <img className="sm:size-[9.375rem] md:size-[18.75rem] lg:size-[30rem]" src={destination.images? destination.images.png : null} alt="" />
                     )}
-        
+                            
                 </div>
                 <div className="flex flex-col lg:px-12 lg:ml-8 sm:mt-12 md:mt-[4.125rem] md:min-w-[32.125rem] lg:text-left md:px-32 lg:w-[50%] items-center lg:items-start max-w-3xl">
                     <div className="w-full md:max-w-[21rem] font-barlowC sm:text-sm lg:pr-[11.5rem] uppercase tracking-widest text-lightBlue">
