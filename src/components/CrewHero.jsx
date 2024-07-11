@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import Spinner from './Spinner';
+import { Link } from 'react-router-dom';
 
 const CrewHero = () => {
     const [crew, setCrew] = useState([]);
     const [loading, setLoading] = useState(true);
+    const maxIdAmnt = 3;
     const activeLink = "size-[10px] rounded-[50%] lg:size-[15px] inline-block bg-white";
+    const normalLink = "size-[10px] rounded-[50%] lg:size-[15px] inline-block transition duration-700 bg-white/20 hover:bg-white/50";
 
     // checking is there a local stored id, if not, setting it to zero (first element Moon)
     const getInitialId = () => {
@@ -21,13 +24,16 @@ const CrewHero = () => {
     useEffect(()=>{
         const fetchDest = async() => {
             setLoading(true);
+            for (let i = 0; i < maxIdAmnt + 1; i++) {
+                document.getElementById(i).className = normalLink;
+            }
             try {
                 const res = await fetch("/api/crew");
-            const data = await res.json();
-            setCrew(data[id]);
-            document.getElementById(id).className = activeLink;
+                const data = await res.json();
+                setCrew(data[id]);
+                document.getElementById(id).className = activeLink;
             } catch (error) {
-             console.log("Error fetching data", error)
+                console.log("Error fetching data", error)
              document.getElementById("container").className = "md:min-h-[90lvh] sm:min-h-[90lvh] lg:min-h-[90lvh] text-white sm:w-[327px] lg:w-[1440px] lg:h-[45.875rem] lg:mx-auto sm:mx-auto sm:py-6 md:p-[2.5rem] md:max-w-[1220px] md:mx-auto lg:py-[2.5rem] lg:px-[10.3125rem] flex flex-col items-center"
 
             } finally {
@@ -35,6 +41,7 @@ const CrewHero = () => {
             }
         }     
         fetchDest();
+
     }, [id]);
 
   return (
@@ -50,10 +57,10 @@ const CrewHero = () => {
                     <div className="sm:text-[0.9375rem] lg:pb-10 lg:text-[1.125rem] md:pb-10 sm:pb-[5.3rem] leading-8 mt-6 font-barlow text-center lg:text-left text-lightBlue">{crew.bio}</div>
                     <div className="w-full font-barlowC sm:text-sm lg:pr-[23.4rem] md:pb-6 lg:mt-[10rem]  uppercase tracking-widest text-lightBlue">
                         <ul className="flex flex-row lg:w-[11.25rem] md:px-[13.25rem] h-[2.25rem] sm:px-[7.5rem]  justify-between">
-                            <li><a id="0" className="size-[10px] rounded-[50%] lg:size-[15px] inline-block transition duration-700 bg-white/20 hover:bg-white/50" onClick={() => {setId(0)}}  href=""></a></li>
-                            <li><a id="1" className="size-[10px] rounded-[50%] lg:size-[15px] inline-block transition duration-700 bg-white/20 hover:bg-white/50" onClick={() => {setId(1)}}  href=""></a></li>
-                            <li><a id="2" className="size-[10px] rounded-[50%] lg:size-[15px] inline-block transition duration-700 bg-white/20 hover:bg-white/50" onClick={() => {setId(2)}}  href=""></a></li>
-                            <li><a id="3" className="size-[10px] rounded-[50%] lg:size-[15px] inline-block transition duration-700 bg-white/20 hover:bg-white/50" onClick={() => {setId(3)}}  href=""></a></li>
+                            <li><Link id="0" className="size-[10px] rounded-[50%] lg:size-[15px] inline-block transition duration-700 bg-white/20 hover:bg-white/50" onClick={() => {setId(0)}}  to=""></Link></li>
+                            <li><Link id="1" className="size-[10px] rounded-[50%] lg:size-[15px] inline-block transition duration-700 bg-white/20 hover:bg-white/50" onClick={() => {setId(1)}}  to=""></Link></li>
+                            <li><Link id="2" className="size-[10px] rounded-[50%] lg:size-[15px] inline-block transition duration-700 bg-white/20 hover:bg-white/50" onClick={() => {setId(2)}}  to=""></Link></li>
+                            <li><Link id="3" className="size-[10px] rounded-[50%] lg:size-[15px] inline-block transition duration-700 bg-white/20 hover:bg-white/50" onClick={() => {setId(3)}}  to=""></Link></li>
                         </ul>
                     </div>
                 </div>

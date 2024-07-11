@@ -16,7 +16,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8000',
+        target: 'https://my-json-server.typicode.com/SocialNerd-h/my.data.json',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

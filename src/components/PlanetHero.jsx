@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import Spinner from "./Spinner";
 
 const PlanetHero = () => {
 
     const activeLink = "h-full inline-block border-b-[3px] border-white text-white";
+    const normalLink = "h-full inline-block transition duration-700 border-b-[3px] border-white/0 hover:border-white/50";
 
     const [destination, setDestination] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    // hardcoded moment, but can't figure out a better solution
+    const maxIdAmnt = 3;
 
 
     // checking is there a local stored id, if not, setting it to zero (first element Moon)
@@ -22,13 +27,20 @@ const PlanetHero = () => {
     }, [id]);
     // fetching data and assigning it to destination using destination useState, first time useEffect triggers after the component renders, after that - every time "id" changes. 
     useEffect(()=>{
+        document.getElementById(id).className = normalLink;
         const fetchDest = async() => {
             setLoading(true);
+            for (let i = 0; i < maxIdAmnt + 1; i++) {
+                document.getElementById(i).className = normalLink;
+            }
+
             try {
                 const res = await fetch("/api/destinations");
                 const data = await res.json();
                 setDestination(data[id]);
+
                 document.getElementById(id).className = activeLink;
+                console.log(id)
             } catch (error) {
                 console.log("Error fetching data", error)
                 document.getElementById("container").className = "md:min-h-[90lvh] sm:min-h-[90lvh] lg:min-h-[90lvh] text-white sm:w-[327px] lg:w-[1440px] md:p-[2.5rem] lg:mx-auto sm:mx-auto  md:max-w-[1220px] md:mx-auto lg:py-[2.5rem] lg:px-[10.3125rem] flex flex-col items-center "
@@ -38,6 +50,7 @@ const PlanetHero = () => {
             }
         }     
         fetchDest();
+
     }, [id]);
 
 
@@ -58,10 +71,10 @@ const PlanetHero = () => {
                 <div className="flex flex-col lg:px-12 lg:ml-8 sm:mt-12 md:mt-[4.125rem] md:min-w-[32.125rem] lg:text-left md:px-32 lg:w-[50%] items-center lg:items-start max-w-3xl">
                     <div className="w-full md:max-w-[21rem] font-barlowC sm:text-sm lg:pr-[11.5rem] uppercase tracking-widest text-lightBlue">
                         <ul className="flex flex-row h-[2.25rem] sm:px-10 justify-between">
-                            <li><a id="0" className="h-full inline-block transition duration-700 border-b-[3px] border-white/0 hover:border-white/50" onClick={() => {setId(0)}}  href="">Moon</a></li>
-                            <li><a id="1" className="h-full inline-block transition duration-700 border-b-[3px] border-white/0 hover:border-white/50" onClick={() => {setId(1)}}  href="">Mars</a></li>
-                            <li><a id="2" className="h-full inline-block transition duration-700 border-b-[3px] border-white/0 hover:border-white/50" onClick={() => {setId(2)}}  href="">Europa</a></li>
-                            <li><a id="3" className="h-full inline-block transition duration-700 border-b-[3px] border-white/0 hover:border-white/50" onClick={() => {setId(3)}}  href="">Titan</a></li>
+                            <li><Link id="0" className={normalLink} onClick={() => {setId(0)}}  to="">Moon</Link></li>
+                            <li><Link id="1" className={normalLink} onClick={() => {setId(1)}}  to="">Mars</Link></li>
+                            <li><Link id="2" className={normalLink} onClick={() => {setId(2)}}  to="">Europa</Link></li>
+                            <li><Link id="3" className={normalLink} onClick={() => {setId(3)}}  to="">Titan</Link></li>
                         </ul>
                     </div>
                     <div className="font-bellefair text sm:text-[3.5rem] lg:text-8xl md:text-[5rem] uppercase" >{destination.name}</div>
